@@ -2,395 +2,540 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="WartaKita menyajikan informasi berita daerah, nasional, teknologi, dan peristiwa.">
-  <title>WartaKita - Informasi untuk Semua</title>
-
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f5f8;
-      color: #202938;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #12345a;
-      color: white;
-      padding: 24px 6%;
-    }
-
-    .header-inner {
-      max-width: 1150px;
-      margin: auto;
-    }
-
-    .logo {
-      font-size: 34px;
-      font-weight: bold;
-      letter-spacing: -1px;
-    }
-
-    .tagline {
-      color: #d5e4f5;
-      margin-top: -5px;
-    }
-
-    nav {
-      background: #0b2544;
-      padding: 0 6%;
-    }
-
-    .nav-inner {
-      max-width: 1150px;
-      margin: auto;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    nav button {
-      border: 0;
-      color: white;
-      background: transparent;
-      padding: 14px 13px;
-      cursor: pointer;
-      font-size: 15px;
-    }
-
-    nav button:hover,
-    nav button.active {
-      background: #285582;
-    }
-
-    main {
-      max-width: 1150px;
-      margin: 28px auto;
-      padding: 0 18px;
-    }
-
-    .search-box {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 26px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #d2d8e1;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    .section-title {
-      border-left: 5px solid #e63946;
-      padding-left: 12px;
-      margin-bottom: 18px;
-    }
-
-    .featured {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 24px;
-      background: white;
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px #182b4010;
-      margin-bottom: 35px;
-    }
-
-    .featured img {
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
-      border-radius: 8px;
-    }
-
-    .label {
-      color: #d62839;
-      font-size: 12px;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      line-height: 1.25;
-    }
-
-    .featured h1 {
-      font-size: 30px;
-    }
-
-    .meta {
-      color: #788395;
-      font-size: 13px;
-    }
-
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 3px 12px #182b4010;
-    }
-
-    .card img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 17px;
-    }
-
-    .card h3 {
-      margin: 8px 0;
-      line-height: 1.4;
-    }
-
-    .read-more {
-      color: #1758a6;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .empty {
-      display: none;
-      padding: 24px;
-      background: white;
-      border-radius: 8px;
-    }
-
-    footer {
-      margin-top: 50px;
-      background: #12345a;
-      color: white;
-      text-align: center;
-      padding: 28px 15px;
-    }
-
-    footer p {
-      margin: 5px;
-    }
-
-    @media (max-width: 760px) {
-      .featured {
-        grid-template-columns: 1fr;
-      }
-
-      .featured img {
-        height: 230px;
-      }
-
-      .featured h1 {
-        font-size: 25px;
-      }
-
-      .news-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .logo {
-        font-size: 29px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#b5121b">
+<meta name="description" content="WartaKita — kabar terbaru, aktual, dan terpercaya dari Indonesia.">
+<title>WartaKita — Berita Terkini Indonesia</title>
+<style>
+:root {
+  --red: #b5121b;
+  --dark: #171717;
+  --muted: #737373;
+  --line: #e8e8e8;
+  --bg: #f5f6f8;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: var(--bg);
+}
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+.topline {
+  background: #202020;
+  color: white;
+  font-size: 12px;
+  padding: 9px 5%;
+}
+.topline-inner, .header-inner, .nav-inner, .container {
+  max-width: 1180px;
+  margin: auto;
+}
+.topline-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+header {
+  background: white;
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  padding: 23px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.brand {
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+.brand span { color: var(--red); }
+.tagline {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 5px;
+}
+.search {
+  display: flex;
+  width: min(330px, 45%);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.search input {
+  border: 0;
+  outline: none;
+  min-width: 0;
+  padding: 12px;
+  flex: 1;
+}
+.search button {
+  border: 0;
+  background: var(--red);
+  color: white;
+  padding: 0 15px;
+  cursor: pointer;
+}
+nav { background: var(--red); color: white; }
+.nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  overflow-x: auto;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+.nav-inner a {
+  padding: 15px 0;
+  font-size: 13px;
+  font-weight: bold;
+}
+.nav-inner a:hover { color: #ffe2a0; }
+.container { padding: 26px 20px 50px; }
+.breaking {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: white;
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  border: 1px solid var(--line);
+  font-size: 13px;
+}
+.breaking strong {
+  color: white;
+  background: var(--red);
+  padding: 7px 10px;
+  white-space: nowrap;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--dark);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+}
+.section-heading h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.section-heading small { color: var(--muted); }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 20px;
+  margin-bottom: 34px;
+}
+.hero {
+  min-height: 350px;
+  position: relative;
+  display: flex;
+  align-items: end;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #333;
+  color: white;
+}
+.hero img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s;
+}
+.hero:hover img { transform: scale(1.035); }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 10%, rgba(0,0,0,.85));
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 26px;
+}
+.category-label {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 6px 9px;
+  border-radius: 3px;
+  margin-bottom: 12px;
+}
+.hero h1 { font-size: clamp(25px, 3.5vw, 38px); line-height: 1.15; margin: 0 0 12px; }
+.meta { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.hero .meta { color: #e3e3e3; }
+.side-news { display: grid; gap: 15px; }
+.side-card {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 13px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 10px;
+  min-height: 105px;
+}
+.side-card img {
+  width: 120px;
+  height: 100%;
+  min-height: 95px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.side-card h3 { font-size: 14px; line-height: 1.4; margin: 5px 0 8px; }
+.mini-cat { color: var(--red); font-size: 10px; font-weight: bold; text-transform: uppercase; }
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 285px;
+  gap: 28px;
+}
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.news-card {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  overflow: hidden;
+  transition: transform .2s, box-shadow .2s;
+}
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px #0000000c;
+}
+.news-card img {
+  display: block;
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  background: #ddd;
+}
+.news-body { padding: 16px; }
+.news-body h3 { font-size: 18px; line-height: 1.4; margin: 9px 0; }
+.news-body p { color: #666; font-size: 13px; line-height: 1.7; }
+.sidebar-box {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 18px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+}
+.sidebar-box h3 {
+  font-size: 17px;
+  margin: 0 0 15px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--red);
+}
+.popular-item {
+  display: flex;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+.popular-item:last-child { border-bottom: 0; }
+.number { color: var(--red); font-size: 24px; font-weight: 900; }
+.category-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.category-buttons button {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 11px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.category-buttons button.active,
+.category-buttons button:hover {
+  background: var(--red);
+  color: white;
+  border-color: var(--red);
+}
+.empty { grid-column: 1/-1; padding: 30px; text-align: center; color: var(--muted); }
+footer { background: #202020; color: white; padding: 30px 20px; }
+.footer-inner { max-width: 1140px; margin: auto; }
+.footer-brand { font-size: 26px; font-weight: 900; }
+.footer-brand span { color: #ff545c; }
+footer p { font-size: 13px; color: #ccc; line-height: 1.7; }
+@media (max-width: 760px) {
+  .header-inner { padding: 18px 15px; flex-wrap: wrap; }
+  .brand { font-size: 29px; }
+  .search { width: 100%; }
+  .nav-inner { gap: 20px; padding: 0 15px; }
+  .container { padding: 18px 14px 35px; }
+  .hero-grid, .content-layout { grid-template-columns: 1fr; }
+  .hero { min-height: 320px; }
+  .side-news { grid-template-columns: 1fr; }
+  .news-grid { gap: 12px; }
+  .news-card img { height: 140px; }
+  .news-body { padding: 12px; }
+  .news-body h3 { font-size: 15px; }
+  .news-body p { font-size: 12px; }
+  .sidebar { display: grid; grid-template-columns: 1fr; }
+}
+@media (max-width: 420px) {
+  .news-grid { grid-template-columns: 1fr; }
+  .news-card img { height: 205px; }
+  .hero-copy { padding: 20px; }
+  .hero { min-height: 290px; }
+  .side-card { grid-template-columns: 100px 1fr; }
+  .side-card img { width: 100px; }
+}
+</style>
 </head>
-
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="logo">WartaKita<span style="color:#ffcf56">.</span></div>
-      <div class="tagline">Informasi untuk Semua</div>
+
+<div class="topline">
+  <div class="topline-inner">
+    <span id="today">WartaKita — Informasi Hari Ini</span>
+    <span>Aktual • Berimbang • Terpercaya</span>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <a class="brand" href="./">Warta<span>Kita</span></a>
+      <div class="tagline">Menyajikan informasi untuk semua</div>
     </div>
-  </header>
+    <form class="search" id="searchForm">
+      <input id="searchInput" type="search" placeholder="Cari berita..." aria-label="Cari berita">
+      <button type="submit">Cari</button>
+    </form>
+  </div>
+</header>
 
-  <nav>
-    <div class="nav-inner">
-      <button class="active" data-category="Semua">Beranda</button>
-      <button data-category="Nasional">Nasional</button>
-      <button data-category="Daerah">Daerah</button>
-      <button data-category="Teknologi">Teknologi</button>
-      <button data-category="Pendidikan">Pendidikan</button>
+<nav>
+  <div class="nav-inner">
+    <a href="./">BERANDA</a>
+    <a href="#terkini" data-nav="Nasional">NASIONAL</a>
+    <a href="#terkini" data-nav="Daerah">DAERAH</a>
+    <a href="#terkini" data-nav="Politik">POLITIK</a>
+    <a href="#terkini" data-nav="Ekonomi">EKONOMI</a>
+    <a href="#terkini" data-nav="Teknologi">TEKNOLOGI</a>
+    <a href="#terkini" data-nav="Olahraga">OLAHRAGA</a>
+    <a href="#terkini" data-nav="Hiburan">HIBURAN</a>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="breaking">
+    <strong>WARTAKITA</strong>
+    <span>Informasi terbaru, inspiratif, dan dekat dengan masyarakat.</span>
+  </div>
+
+  <div class="section-heading">
+    <h2>Berita Pilihan</h2>
+    <small>Headline</small>
+  </div>
+
+  <section class="hero-grid">
+    <a class="hero" href="#terkini">
+      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1200&q=85" alt="Ilustrasi berita dan surat kabar">
+      <div class="hero-copy">
+        <span class="category-label">BERITA UTAMA</span>
+        <h1>WartaKita, Menyajikan Informasi untuk Semua</h1>
+        <div class="meta">Redaksi WartaKita · Portal berita</div>
+      </div>
+    </a>
+    <div class="side-news">
+      <article class="side-card">
+        <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=400&q=80" alt="Gedung pemerintahan">
+        <div><span class="mini-cat">Nasional</span><h3>Informasi nasional dan perkembangan terkini</h3><div class="meta">Berita pilihan</div></div>
+      </article>
+      <article class="side-card">
+        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Bangunan kota">
+        <div><span class="mini-cat">Daerah</span><h3>Kabar daerah, dekat dengan kehidupan masyarakat</h3><div class="meta">Berita pilihan</div></div>
+      </article>
+      <article class="side-card">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=400&q=80" alt="Analisis data">
+        <div><span class="mini-cat">Ekonomi</span><h3>Informasi ekonomi dan perkembangan usaha</h3><div class="meta">Berita pilihan</div></div>
+      </article>
     </div>
-  </nav>
+  </section>
 
-  <main>
-    <div class="search-box">
-      <input
-        id="search"
-        type="search"
-        placeholder="Cari berita di WartaKita..."
-        aria-label="Cari berita"
-      >
-    </div>
+  <div class="section-heading" id="terkini">
+    <h2>Berita Terkini</h2>
+    <small id="resultCount">Pilihan redaksi</small>
+  </div>
 
-    <h2 class="section-title">Berita Utama</h2>
+  <div class="category-buttons" id="categories" style="margin-bottom:18px">
+    <button class="active" data-category="Semua">Semua</button>
+    <button data-category="Nasional">Nasional</button>
+    <button data-category="Daerah">Daerah</button>
+    <button data-category="Politik">Politik</button>
+    <button data-category="Ekonomi">Ekonomi</button>
+    <button data-category="Teknologi">Teknologi</button>
+    <button data-category="Olahraga">Olahraga</button>
+    <button data-category="Hiburan">Hiburan</button>
+  </div>
 
-    <section class="featured">
-      <img
-        src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1000&q=80"
-        alt="Ilustrasi kegiatan jurnalistik"
-      >
-
-      <div>
-        <span class="label">Contoh berita</span>
-        <h1>WartaKita Hadir sebagai Sumber Informasi Masyarakat</h1>
-        <p class="meta">Redaksi WartaKita · Artikel perkenalan</p>
-        <p>
-          WartaKita dirancang untuk menyajikan informasi daerah,
-          nasional, pendidikan, teknologi, dan berbagai peristiwa
-          yang penting bagi masyarakat.
+  <div class="content-layout">
+    <section class="news-grid" id="newsGrid"></section>
+    <aside class="sidebar">
+      <div class="sidebar-box">
+        <h3>Berita Populer</h3>
+        <div class="popular-item"><span class="number">01</span><span>Ikuti perkembangan informasi terkini bersama WartaKita.</span></div>
+        <div class="popular-item"><span class="number">02</span><span>Temukan kabar daerah dan cerita inspiratif masyarakat.</span></div>
+        <div class="popular-item"><span class="number">03</span><span>Baca informasi pilihan dalam satu portal berita.</span></div>
+      </div>
+      <div class="sidebar-box">
+        <h3>Tentang WartaKita</h3>
+        <p style="font-size:13px;line-height:1.8;color:#666">
+          WartaKita adalah portal informasi yang dirancang untuk menyajikan kabar aktual, berita daerah, dan berbagai informasi yang bermanfaat bagi masyarakat.
         </p>
       </div>
-    </section>
+    </aside>
+  </div>
+</main>
 
-    <h2 class="section-title">Berita Terbaru</h2>
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Warta<span>Kita</span></div>
+    <p>Informasi aktual, berimbang, dan dekat dengan masyarakat.</p>
+    <p>© <span id="year"></span> WartaKita. Hak cipta dilindungi.</p>
+  </div>
+</footer>
 
-    <section class="news-grid" id="newsGrid">
+<script>
+const sampleNews = [
+  {
+    title: "Pentingnya Mengikuti Informasi dari Sumber yang Terpercaya",
+    category: "Nasional",
+    summary: "Kenali sumber informasi dan periksa kebenaran berita sebelum membagikannya kepada orang lain.",
+    image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    title: "Kabar Daerah dan Perkembangan di Sekitar Kita",
+    category: "Daerah",
+    summary: "Informasi daerah membantu masyarakat mengikuti perkembangan lingkungan dan kegiatan setempat.",
+    image: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    title: "Mengenal Perkembangan Ekonomi di Era Digital",
+    category: "Ekonomi",
+    summary: "Teknologi digital membuka beragam peluang usaha sekaligus tantangan baru bagi masyarakat.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    title: "Teknologi yang Membantu Aktivitas Sehari-hari",
+    category: "Teknologi",
+    summary: "Pemanfaatan teknologi secara bijak dapat membantu pekerjaan, komunikasi, dan akses informasi.",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    title: "Olahraga dan Gaya Hidup Sehat untuk Semua",
+    category: "Olahraga",
+    summary: "Kebiasaan bergerak dan berolahraga secara teratur membantu menjaga kebugaran tubuh.",
+    image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    title: "Cerita Inspiratif dari Masyarakat",
+    category: "Hiburan",
+    summary: "Kisah positif di sekitar kita bisa menjadi inspirasi untuk terus belajar dan berkembang.",
+    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=700&q=80"
+  }
+];
 
-      <article class="card" data-category="Daerah">
-        <img
-          src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=700&q=80"
-          alt="Ilustrasi kegiatan masyarakat"
-          loading="lazy"
-        >
-        <div class="card-content">
-          <span class="label">Daerah</span>
-          <h3>Contoh Liputan Kegiatan Masyarakat di Daerah</h3>
-          <p class="meta">Contoh artikel · 3 menit membaca</p>
-          <p>Tempat untuk menuliskan ringkasan berita daerah.</p>
-          <a class="read-more" href="#"
-             onclick="alert('Ganti tautan ini dengan halaman artikel sebenarnya.'); return false;">
-            Baca selengkapnya →
-          </a>
-        </div>
-      </article>
+const grid = document.getElementById("newsGrid");
+const searchInput = document.getElementById("searchInput");
+let activeCategory = "Semua";
 
-      <article class="card" data-category="Nasional">
-        <img
-          src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=700&q=80"
-          alt="Ilustrasi gedung pemerintahan"
-          loading="lazy"
-        >
-        <div class="card-content">
-          <span class="label">Nasional</span>
-          <h3>Informasi Nasional dan Perkembangan Terkini</h3>
-          <p class="meta">Contoh artikel · 4 menit membaca</p>
-          <p>Tempat untuk menuliskan ringkasan berita nasional.</p>
-          <a class="read-more" href="#"
-             onclick="alert('Ganti tautan ini dengan halaman artikel sebenarnya.'); return false;">
-            Baca selengkapnya →
-          </a>
-        </div>
-      </article>
+function renderNews() {
+  const term = searchInput.value.trim().toLowerCase();
+  const filtered = sampleNews.filter(news => {
+    const matchesCategory = activeCategory === "Semua" || news.category === activeCategory;
+    const matchesSearch = (news.title + " " + news.summary + " " + news.category).toLowerCase().includes(term);
+    return matchesCategory && matchesSearch;
+  });
 
-      <article class="card" data-category="Teknologi">
-        <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=700&q=80"
-          alt="Ilustrasi teknologi dan komputer"
-          loading="lazy"
-        >
-        <div class="card-content">
-          <span class="label">Teknologi</span>
-          <h3>Perkembangan Teknologi Digital di Masyarakat</h3>
-          <p class="meta">Contoh artikel · 3 menit membaca</p>
-          <p>Tempat untuk menuliskan ringkasan berita teknologi.</p>
-          <a class="read-more" href="#"
-             onclick="alert('Ganti tautan ini dengan halaman artikel sebenarnya.'); return false;">
-            Baca selengkapnya →
-          </a>
-        </div>
-      </article>
+  document.getElementById("resultCount").textContent = filtered.length + " berita";
+  grid.innerHTML = "";
 
-      <article class="card" data-category="Pendidikan">
-        <img
-          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=80"
-          alt="Ilustrasi kegiatan pendidikan"
-          loading="lazy"
-        >
-        <div class="card-content">
-          <span class="label">Pendidikan</span>
-          <h3>Informasi Pendidikan dan Kegiatan Sekolah</h3>
-          <p class="meta">Contoh artikel</p>
-          <p>Tempat untuk menuliskan informasi pendidikan.</p>
-          <a class="read-more" href="#"
-             onclick="alert('Ganti tautan ini dengan halaman artikel sebenarnya.'); return false;">
-            Baca selengkapnya →
-          </a>
-        </div>
-      </article>
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="empty">Berita tidak ditemukan. Coba kata kunci lain.</div>';
+    return;
+  }
 
-    </section>
+  filtered.forEach(news => {
+    const card = document.createElement("article");
+    card.className = "news-card";
+    const img = document.createElement("img");
+    img.src = news.image;
+    img.alt = news.title;
+    img.loading = "lazy";
 
-    <p class="empty" id="empty">
-      Berita tidak ditemukan. Coba kata kunci lain.
-    </p>
-  </main>
+    const body = document.createElement("div");
+    body.className = "news-body";
+    const category = document.createElement("span");
+    category.className = "mini-cat";
+    category.textContent = news.category;
 
-  <footer>
-    <div class="logo">WartaKita.</div>
-    <p>Informasi untuk Semua</p>
-    <p>&copy; <span id="year"></span> WartaKita. Hak cipta dilindungi.</p>
-  </footer>
+    const title = document.createElement("h3");
+    title.textContent = news.title;
 
-  <script>
-    const search = document.getElementById("search");
-    const cards = [...document.querySelectorAll(".card")];
-    const buttons = [...document.querySelectorAll("nav button")];
-    const empty = document.getElementById("empty");
+    const summary = document.createElement("p");
+    summary.textContent = news.summary;
 
-    let selectedCategory = "Semua";
+    const meta = document.createElement("div");
+    meta.className = "meta";
+    meta.textContent = "Contoh tampilan · WartaKita";
 
-    function filterNews() {
-      const keyword = search.value.toLowerCase().trim();
-      let visible = 0;
+    body.append(category, title, summary, meta);
+    card.append(img, body);
+    grid.appendChild(card);
+  });
+}
 
-      cards.forEach(card => {
-        const matchesKeyword =
-          card.innerText.toLowerCase().includes(keyword);
+document.getElementById("categories").addEventListener("click", event => {
+  const button = event.target.closest("button[data-category]");
+  if (!button) return;
+  activeCategory = button.dataset.category;
+  document.querySelectorAll("#categories button").forEach(btn => {
+    btn.classList.toggle("active", btn === button);
+  });
+  renderNews();
+});
 
-        const matchesCategory =
-          selectedCategory === "Semua" ||
-          card.dataset.category === selectedCategory;
-
-        const show = matchesKeyword && matchesCategory;
-
-        card.style.display = show ? "" : "none";
-        if (show) visible++;
-      });
-
-      empty.style.display = visible ? "none" : "block";
-    }
-
-    search.addEventListener("input", filterNews);
-
-    buttons.forEach(button => {
-      button.addEventListener("click", () => {
-        selectedCategory = button.dataset.category;
-
-        buttons.forEach(item => item.classList.remove("active"));
-        button.classList.add("active");
-
-        filterNews();
-      });
+document.querySelectorAll("[data-nav]").forEach(link => {
+  link.addEventListener("click", () => {
+    activeCategory = link.dataset.nav;
+    document.querySelectorAll("#categories button").forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.category === activeCategory);
     });
+    renderNews();
+  });
+});
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+document.getElementById("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+  renderNews();
+  document.getElementById("terkini").scrollIntoView({ behavior: "smooth" });
+});
+
+searchInput.addEventListener("input", renderNews);
+document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("today").textContent =
+  new Date().toLocaleDateString("id-ID", {
+    weekday: "long", day: "numeric", month: "long", year: "numeric"
+  });
+renderNews();
+</script>
 </body>
 </html>
